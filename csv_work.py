@@ -59,11 +59,9 @@ class BaseCSVHandler (object):
         self.write_result()
         self.close_all_files()
 
-class CSVAverageCalcerMixin (object):
+class CSVAverageCalculate (BaseCSVHandler):
     out_def_fldnm = ['month','year','customer','average']
     wrk = {}
-
-class CSVAverageCalculate (CSVAverageCalcerMixin, BaseCSVHandler):
 
     def __init__ (self, fnm_in='input.csv', fnm_out='output.csv', restkey=None, restval=None, dialect_in="excel",
                   dialect_out="excel", dateformat = '%d.%m.%Y', double_rec_is_error=True , spase_is_nul=True ):
