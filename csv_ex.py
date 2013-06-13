@@ -1,5 +1,5 @@
-from csv_work import BaseCSVHandler
+from csv_work import CSVAvgClcWithNullAsNull, BaseCSVHandler
 import sys
 
-csv_han = BaseCSVHandler ()
+csv_han = CSVAvgClcWithNullAsNull ()
 csv_han.process_all()
