@@ -17,10 +17,6 @@ class BaseCSVHandler(object):
             raise ValueError,\
                   ("incorrect number of columns in the file %s, it should have %d columns" %
                    (fnm_in, len(self.defined_input_field_names)))
-#        chk = False
-#        for i in range(len(self.defined_input_field_names)):
-#            chk = chk or field_names[i]<>self.defined_input_field_names[i]
-#        for pair in zip(field_names,self.defined_input_field_names): chk = chk or pair[0] != pair[1]
         if [1 for x in zip(field_names,self.defined_input_field_names) if x[0] != x[1]]:
             raise ValueError,\
               ("incorrect names of columns in the file %s, they should be %s" %
@@ -65,7 +61,7 @@ class CSVAverageCalculate(BaseCSVHandler):
         self.dateformat = dateformat
         self.double_rec_is_error = double_rec_is_error
         self.spase_is_nul = spase_is_nul
-        return BaseCSVHandler.__init__(self, fnm_in, fnm_out, restkey, restval, dialect_in, dialect_out)
+        super (CSVAverageCalculate,self).__init__(fnm_in, fnm_out, restkey, restval, dialect_in, dialect_out)
 
     def one_string_handler(self,s):
         if not s: return
